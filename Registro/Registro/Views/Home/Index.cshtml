@@ -1,0 +1,49 @@
+﻿@using Registro.Models
+@model Datos
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+<form action="Resultado" method="post">
+    @Html.LabelForModel("Cedula")
+    @Html.TextBoxFor(x => x.Cedula, new { @class = "form-control" }) <br />
+    @Html.LabelForModel("Nombre")
+    @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })<br />
+    @Html.LabelForModel("Apellido")
+    @Html.TextBoxFor(x => x.Apellido, new { @class = "form-control" })<br />
+    @Html.LabelForModel("Edad")
+    @Html.TextBoxFor(x => x.Edad, new { @class = "form-control" })<br />
+    @Html.ValidationMessageFor(p => p.Edad)
+    @Html.LabelForModel("Telefono")
+    @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control" })<br />
+    @Html.LabelForModel("Correo")
+    @Html.TextBoxFor(x => x.Correo, new { @class = "form-control" })<br />
+
+    @Html.DropDownListFor(m =>m.Genero,
+    new SelectList(Enum.GetValues(typeof(GeneroRef))),
+      "seleccional el genero ")<br />
+
+    @Html.Label("Estado Civil:")<br />
+
+    Casado:@Html.RadioButton("EstadoRef", "asado")<br />
+
+    Soltero:@Html.RadioButton("EstadoRef", "soltero")<br />
+
+    UnionLibre:@Html.RadioButton("EstadoRef", "unionlibre")<br />
+
+    Viudo:@Html.RadioButton("EstadoRef", "viudo")<br />
+    @Html.Label("Hobby:")<br />
+
+    Videojuegos:@Html.CheckBox("HobbyRef", "videojuegos")<br />
+
+    Leer:@Html.CheckBox("HobbyRef", "leer")<br />
+
+    Dormir:@Html.CheckBox("HobbyRef", "Dormir")<br />
+
+    Viudo:@Html.CheckBox("HobbyRef", "viudo")<br />
+
+    <input type="submit" value="Enviar" />
+</form>
